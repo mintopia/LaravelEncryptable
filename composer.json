@@ -1,0 +1,20 @@
+{
+    "name": "cheezykins/laravel-encryptable",
+    "description": "An encryptable trait that can be used in models",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Chris Stretton",
+            "email": "cstretton@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Cheezykins\\LaravelEncryptable\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=7.0",
+        "illuminate/support": "^5.0"
+    }
+}
