@@ -2,6 +2,7 @@
     "name": "cheezykins/laravel-encryptable",
     "description": "An encryptable trait that can be used in models",
     "type": "library",
+    "license": "MIT",
     "authors": [
         {
             "name": "Chris Stretton",
