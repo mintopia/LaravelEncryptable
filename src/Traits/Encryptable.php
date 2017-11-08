@@ -20,7 +20,22 @@ trait Encryptable
     {
         $value = parent::getAttribute($key);
         if (in_array($key, $this->encrypted ?? [])) {
-            $value = Crypt::decrypt($value);
+            $value = $this->decryptValue($key);
+        }
+        return $value;
+    }
+
+    /**
+     * Decrypts a value only if it is not null and not empty.
+     *
+     * @param $value
+     *
+     * @return mixed
+     */
+    protected function decryptValue($value)
+    {
+        if ($value !== null && !empty($value)) {
+            return Crypt::decrypt($value);
         }
         return $value;
     }
@@ -51,7 +66,7 @@ trait Encryptable
 
         foreach ($this->encrypted ?? [] as $key) {
             if (isset($attributes[$key])) {
-                $attributes[$key] = Crypt::decrypt($attributes[$key]);
+                $attributes[$key] = $this->decryptValue($attributes[$key]);
             }
         }
 
