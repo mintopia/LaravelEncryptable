@@ -1,14 +1,11 @@
 <?php
 
-
 namespace Cheezykins\LaravelEncryptable\Traits;
-
 
 use Illuminate\Support\Facades\Crypt;
 
 trait Encryptable
 {
-
     /**
      * Decrypt the column value if it is in the encrypted array.
      *
@@ -22,6 +19,7 @@ trait Encryptable
         if (in_array($key, $this->encrypted ?? [])) {
             $value = $this->decryptValue($key);
         }
+
         return $value;
     }
 
@@ -37,6 +35,7 @@ trait Encryptable
         if ($value !== null && !empty($value)) {
             return Crypt::decrypt($value);
         }
+
         return $value;
     }
 
@@ -44,7 +43,6 @@ trait Encryptable
      * Set the value, encrypting it if it is in the encrypted array.
      *
      * @param $key
-     *
      * @param $value
      */
     public function setAttribute($key, $value)
@@ -52,6 +50,7 @@ trait Encryptable
         if (in_array($key, $this->encrypted ?? [])) {
             $value = Crypt::encrypt($value);
         }
+
         return parent::setAttribute($key, $value);
     }
 
