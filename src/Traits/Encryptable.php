@@ -44,10 +44,11 @@ trait Encryptable
      *
      * @param $key
      * @param $value
+     * @return
      */
     public function setAttribute($key, $value)
     {
-        if (in_array($key, $this->encrypted ?? [])) {
+        if ($value !== null && in_array($key, $this->encrypted ?? [])) {
             $value = Crypt::encrypt($value);
         }
 

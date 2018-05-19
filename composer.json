@@ -14,8 +14,17 @@
             "Cheezykins\\LaravelEncryptable\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Cheezykins\\LaravelEncryptable\\Test\\": "test/"
+        }
+    },
     "require": {
         "php": ">=7.0",
         "illuminate/support": "^5.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.1",
+        "mockery/mockery": "^1.1"
     }
 }
