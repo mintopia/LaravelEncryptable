@@ -2,7 +2,6 @@
 
 namespace Cheezykins\LaravelEncryptable\Test\Mocks;
 
-
 use Cheezykins\LaravelEncryptable\Traits\Encryptable;
 
 class EncryptableModel extends MockModel
@@ -12,5 +11,4 @@ class EncryptableModel extends MockModel
     protected $encrypted = [
         'securedata',
     ];
-
 }

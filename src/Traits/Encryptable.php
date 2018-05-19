@@ -44,6 +44,7 @@ trait Encryptable
      *
      * @param $key
      * @param $value
+     *
      * @return
      */
     public function setAttribute($key, $value)
