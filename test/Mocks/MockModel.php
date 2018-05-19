@@ -2,7 +2,6 @@
 
 namespace Cheezykins\LaravelEncryptable\Test\Mocks;
 
-
 abstract class MockModel
 {
     public $attributes;
