@@ -1,4 +1,4 @@
-# Laravel Encrypter Trait
+# Laravel Encryptable Trait
 
 Provides a trait to decrypt or encrypt values in a Laravel model.
 
@@ -16,7 +16,6 @@ class MyModel extends Model {
     use Encryptable;
 
     protected $encrypted = [
-        'name',
         'email'
     ];
 }
@@ -31,13 +30,36 @@ $model->email = 'chris@test.com';
 $model->save();
 ```
 
-The name field in the database will now be the encrypted value.
+The email field in the database will now be the encrypted value.
 
 ```eyJpdiI6IkRZS0lOUlwvR29MbU4zN1diYzl2ZCtnPT0iLCJ2YWx1ZSI6IldEYzVUajlUcDdvVHE0M0kxdForNlE9PSIsIm1hYyI6ImY1MzQ2ZWYwNTNkZDI2YTY2MDgyMmVjZmU3MmI0MGU0NTNmMmU4NWE4OGFmYzZhYTJlYzczMWU1YTdmNzNjYjQifQ==```
 
+When retrieved, the data will be automatically decrypted for you.
+
+```php
+$model = MyModel::find(1);
+echo $model->email;
+```
+```> "chris@test.com"```
+
+Same for other ways of accessing model data.
+
+```php
+$model = MyModel::find(1);
+return response()->json($model->toArray());
+```
+
+```json
+{
+  "id": 1,
+  "name": "Chris",
+  "email": "chris@test.com"
+}
+```
+
 **WARNING**
 
-The encrypted value is stored based on your Laravel APP_KEY using the algorithm defined in your config/app.php cipher setting. If your application key is changed or lost there is no way to retrieve the data.
+The encrypted value is stored based on your Laravel APP_KEY using the algorithm defined in your config/app.php cipher setting. If your application key is changed or lost there is **no way** to retrieve the data.
 
 ## Installation
 
