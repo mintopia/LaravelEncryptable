@@ -2,22 +2,8 @@
 
 namespace Cheezykins\LaravelEncryptable\Test\Mocks;
 
-abstract class MockModel
+use Illuminate\Database\Eloquent\Model;
+
+abstract class MockModel extends Model
 {
-    public $attributes;
-
-    public function getAttribute($key)
-    {
-        return $this->attributes[$key];
-    }
-
-    public function setAttribute($key, $value)
-    {
-        $this->attributes[$key] = $value;
-    }
-
-    public function attributesToArray()
-    {
-        return $this->attributes;
-    }
 }

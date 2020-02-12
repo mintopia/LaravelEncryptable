@@ -21,8 +21,8 @@ class EncryptableTest extends MockeryTestCase
 
         $x = new EncryptableModel();
         $x->setAttribute('name', 'testing');
-        $this->assertArrayHasKey('name', $x->attributes);
-        $this->assertEquals('testing', $x->attributes['name']);
+        $this->assertArrayHasKey('name', $x->getAttributes());
+        $this->assertEquals('testing', $x->getAttributes()['name']);
     }
 
     public function testNonEncryptedDoesntDecrypt()
@@ -32,8 +32,8 @@ class EncryptableTest extends MockeryTestCase
 
         $x = new EncryptableModel();
         $x->setAttribute('name', 'testing');
-        $this->assertArrayHasKey('name', $x->attributes);
-        $this->assertEquals('testing', $x->attributes['name']);
+        $this->assertArrayHasKey('name', $x->getAttributes());
+        $this->assertEquals('testing', $x->getAttributes()['name']);
         $this->assertEquals('testing', $x->getAttribute('name'));
     }
 
@@ -47,8 +47,8 @@ class EncryptableTest extends MockeryTestCase
         $x = new EncryptableModel();
 
         $x->setAttribute('securedata', 'this is secret data!');
-        $this->assertArrayHasKey('securedata', $x->attributes);
-        $this->assertEquals('encrypted!', $x->attributes['securedata']);
+        $this->assertArrayHasKey('securedata', $x->getAttributes());
+        $this->assertEquals('encrypted!', $x->getAttributes()['securedata']);
     }
 
     public function testDecryptsAttribute()
@@ -65,7 +65,7 @@ class EncryptableTest extends MockeryTestCase
         $x = new EncryptableModel();
 
         $x->setAttribute('securedata', 'this is secret data!');
-        $this->assertEquals('encrypted!', $x->attributes['securedata']);
+        $this->assertEquals('encrypted!', $x->getAttributes()['securedata']);
         $this->assertEquals('this is secret data!', $x->getAttribute('securedata'));
     }
 
@@ -74,7 +74,7 @@ class EncryptableTest extends MockeryTestCase
         $x = new EncryptableModel();
 
         $x->setAttribute('securedata', null);
-        $this->assertNull($x->attributes['securedata']);
+        $this->assertNull($x->getAttributes()['securedata']);
     }
 
     public function testDoesntDecryptNulls()
@@ -103,7 +103,7 @@ class EncryptableTest extends MockeryTestCase
 
         $array = $x->attributesToArray();
 
-        $this->assertEquals('encrypted!', $x->attributes['securedata']);
+        $this->assertEquals('encrypted!', $x->getAttributes()['securedata']);
         $this->assertEquals('this is secret data!', $array['securedata']);
     }
 }

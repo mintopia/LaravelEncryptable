@@ -13,9 +13,9 @@ trait Encryptable
      *
      * @return mixed
      */
-    public function getAttribute($key)
+    public function getAttributeValue($key)
     {
-        $value = parent::getAttribute($key);
+        $value = parent::getAttributeValue($key);
         if (in_array($key, $this->encrypted ?? [])) {
             $value = $this->decryptValue($value);
         }
