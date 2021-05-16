@@ -1,5 +1,5 @@
 {
-    "name": "cheezykins/laravel-encryptable",
+    "name": "mintopiu/laravel-encryptable",
     "description": "An encryptable trait that can be used in models",
     "type": "library",
     "license": "MIT",
@@ -7,7 +7,9 @@
         {
             "name": "Chris Stretton",
             "email": "cstretton@gmail.com"
-        }
+        }, {
+            "name": "Jessica Smith",
+            "email": "jess@mintopia.net"
     ],
     "autoload": {
         "psr-4": {
