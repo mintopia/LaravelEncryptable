@@ -1,5 +1,5 @@
 {
-    "name": "mintopiu/laravel-encryptable",
+    "name": "mintopia/laravel-encryptable",
     "description": "An encryptable trait that can be used in models",
     "type": "library",
     "license": "MIT",
