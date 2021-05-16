@@ -10,6 +10,7 @@
         }, {
             "name": "Jessica Smith",
             "email": "jess@mintopia.net"
+        }
     ],
     "autoload": {
         "psr-4": {
